@@ -1,0 +1,25 @@
+Hello,
+
+A software update has been deployed to Fargate which includes CVE patches or other critical patches. No action is required on your part. All new tasks launched automatically uses the latest software version. For running tasks, your tasks need to be restarted in order for these updates to apply. Your tasks running as part of the ECS Services, listed at the end of this message, will be automatically updated beginning October 31, 2022.
+
+After October 31, 2022, Fargate will begin gradually restarting these tasks. Typically, services should see little to no interruption during the update and no action is required. Data your task has stored on local ephemeral storage will no longer be available, similar to a scaling down event. If you would like to control the timing of this restart you can update the service before October 31, 2022, by running the update-service command from the ECS command-line interface specifying force-new-deployment. For example:
+
+$ aws ecs update-service --service service_name \
+--cluster cluster_name --force-new-deployment
+
+For further details on Fargate's update process, please refer to the ECS developer guide [1].
+
+If you have any questions or concerns, please contact AWS Support [2].
+
+[1] AWS Fargate task maintenance - Amazon ECS
+[2] https://aws.amazon.com/support
+
+The following is a list of your affected resource(s) in the "Cluster | Service" format:
+uat-fadapi-frgt-cluster/uat-fadapi-frgt-service
+stage-fadapi-frgt-cluster/stage-fadapi-frgt-service
+prod-fadapi-frgt-cluster/prod-fadapi-frgt-service
+
+Sincerely,
+Amazon Web Services
+
+
